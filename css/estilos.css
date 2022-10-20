@@ -3,7 +3,7 @@ body{
 }
 
 
-#login{
+#login {
     width:50%;
     border: 1px solid black;
     border-radius: 10px;
@@ -14,4 +14,22 @@ body{
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,.5);
 
 }
+
+#registro {
+    width:50%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    opacity: .8;
+    box-shadow: 10px 10px 10px 0px rgba(0,0,0,.5);
+
+}
+
+#link{
+    text-align: right;
+}
+
+
 
