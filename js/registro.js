@@ -14,12 +14,28 @@ function registro(e){
     let emailVal = email.value;
     let userVal = user.value;
     let passValue = pass.value;
-
+    //validacion de datos
     if(nombreVal == '' || emailVal == '' || userVal == '' || passValue == ''){
         return;
     } 
-    console.log('Validacion de datos');
-    
+    //console.log('Validacion de datos');
+    const usuario = {//atributos llave valor
+        nombre: nombreVal,
+        email: emailVal,
+        user: userVal,
+        pass: passValue
+
+    }
+    //localStorage solo guarda Strings
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+
+   nombre.value = '';
+   email.value = '';
+   user.value = '';
+   pass.value = '';
+
+    console.log('usuario guardado');
+
 
 }
 
