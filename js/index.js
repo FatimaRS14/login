@@ -15,14 +15,49 @@ function login(e){
 
     //validacion de usuario y contraseña
     if(usuarioVal == ''|| passwordVal == ''){
+        crearMensajeAlert('Verifica tus campos','danger');
         return;
     }
-    //recuperar datos
-    console.log('el valor para user es:' + usuarioVal);
-    console.log('el valor para pass es:' + passwordVal);
-
     
+    if(localStorage.getItem('usuario')){
+        let objeto = JSON.parse(localStorage.getItem('usuario'));
+
+        if(usuarioVal == objeto.user && passwordVal == objeto.pass){
+            crearMensaje('Usuario correcto', 'success');
+        }else{
+            crearMensajeAlert('Usuario incorrecto', 'danger');
+
+        }
+    }else{
+       crearMensajeAlert('Usuarios no existentes', 'danger');
+    }
+    
+}
+/*
+function crearMensaje(texto){
+    const nuevoElemento = document.createElement('div');
+    nuevoElemento.innerText = texto;
+    nuevoElemento.classList.add('alert', 'alert-success');
+    const divMensaje = document.getElementById('mensaje');
+    divMensaje.appendChild(nuevoElemento);
+    setTimeout(function(){
+        nuevoElemento.remove();
+     }, 2000);
+ 
+}
+
+function crearMensajeAlert(texto){
+    const nuevoElemento = document.createElement('div');
+    nuevoElemento.innerText = texto;
+    nuevoElemento.classList.add('alert', 'alert-danger');
+    const divMensaje = document.getElementById('mensaje');
+    divMensaje.appendChild(nuevoElemento);
+    setTimeout(function(){
+       nuevoElemento.remove();
+    }, 2000);
 
 }
+
+*/
 
 
