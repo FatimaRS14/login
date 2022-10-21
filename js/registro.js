@@ -16,6 +16,7 @@ function registro(e){
     let passValue = pass.value;
     //validacion de datos
     if(nombreVal == '' || emailVal == '' || userVal == '' || passValue == ''){
+        crearMensajeAlert('Verifica los datos ingresados en los campos');
         return;
     } 
     //console.log('Validacion de datos');
@@ -28,14 +29,33 @@ function registro(e){
     }
     //localStorage solo guarda Strings
     localStorage.setItem('usuario', JSON.stringify(usuario));
+    //limpiar form al guardar datos
+    nombre.value = '';
+    email.value = '';
+    user.value = '';
+    pass.value = '';
 
-   nombre.value = '';
-   email.value = '';
-   user.value = '';
-   pass.value = '';
+    crearMensaje('Usuario Registrado con éxito');
+}
 
-    console.log('usuario guardado');
+function crearMensaje(texto){
+    const nuevoElemento = document.createElement('div');
+    nuevoElemento.innerText = texto;
+    nuevoElemento.classList.add('alert', 'alert-success');
+    const divMensaje = document.getElementById('mensaje');
+    divMensaje.appendChild(nuevoElemento);
 
+}
+
+function crearMensajeAlert(texto){
+    const nuevoElemento = document.createElement('div');
+    nuevoElemento.innerText = texto;
+    nuevoElemento.classList.add('alert', 'alert-danger');
+    const divMensaje = document.getElementById('mensaje');
+    divMensaje.appendChild(nuevoElemento);
+    setTimeout(function(){
+       nuevoElemento.remove();
+    }, 2000);
 
 }
 
