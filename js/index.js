@@ -24,6 +24,11 @@ function login(e){
 
         if(usuarioVal == objeto.user && passwordVal == objeto.pass){
             crearMensaje('Usuario correcto', 'success');
+            localStorage.setItem('sesion','activa');
+            setTimeout(function(){
+                //redireccionamiento de ventana correcta
+                window.open('./inicio.html','_self');
+            },2000);
         }else{
             crearMensajeAlert('Usuario incorrecto', 'danger');
 

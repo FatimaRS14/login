@@ -13,6 +13,26 @@
     <div class="jumbotron">
     <h1>Bienvenidos a mi Aplicación</h1>
     </div>
+    <div id="salir">
+        <button class="btn btn-outline-danger" id="btnSalir">Salir</button>
+    </div>
 </div>
+<script>
+    //addEventListener- sirve para crear eventos 
+    //se crea el redireccionamiento al no tener una sesion activa 
+        window.addEventListener('load', function(){
+            if(localStorage.getItem('sesion')==null){
+                window.location.replace('./index.html','_self'); 
+            }
+        });
+
+        const boton= document.getElementById('btnSalir');
+
+        boton.addEventListener('click', function(e){
+            e.preventDefault();
+            localStorage.removeItem('sesion');
+            window.open('./index.html','_self');
+        });
+</script>
 </body>
 </html>
